@@ -7,13 +7,32 @@
 //
 
 import Cocoa
+import WebKit
+import AVFoundation
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, WKUIDelegate {
 
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        let myURL = URL(string: "https://www.apple.com/")
+//        let myRequest = URLRequest(url: myURL!)
+//        webView.load(myRequest)
+        
+        let url = Bundle.main.url(forResource: "template", withExtension: "html")
+        var content: String! = "nihao"
+        do {
+
+            content = try String(contentsOf: url!)
+        } catch {}
+
+        Swift.print(content)
+        webView.loadHTMLString(content!, baseURL: nil)
+        
+        
+        
     }
 
     override var representedObject: Any? {
