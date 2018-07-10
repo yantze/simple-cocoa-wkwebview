@@ -13,25 +13,23 @@ import AVFoundation
 class ViewController: NSViewController, WKUIDelegate {
 
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var urlText: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let myURL = URL(string: "https://www.apple.com/")
-//        let myRequest = URLRequest(url: myURL!)
-//        webView.load(myRequest)
-        
+        urlText.stringValue = "https://www.apple.com/"
+        load(str: urlText.stringValue)
+        /*
         let url = Bundle.main.url(forResource: "template", withExtension: "html")
         var content: String! = "nihao"
         do {
-
             content = try String(contentsOf: url!)
         } catch {}
 
         Swift.print(content)
         webView.loadHTMLString(content!, baseURL: nil)
-        
-        
+        */
         
     }
 
@@ -40,7 +38,16 @@ class ViewController: NSViewController, WKUIDelegate {
         // Update the view, if already loaded.
         }
     }
+    
+    func load(str: String) {
+        let myURL = URL(string: str)
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+    }
 
+    @IBAction func goTo(sender: NSButton) {
+        load(str: urlText.stringValue)
+    }
 
 }
 

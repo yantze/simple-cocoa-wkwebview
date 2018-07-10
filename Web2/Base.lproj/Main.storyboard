@@ -710,7 +710,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <wkWebView wantsLayer="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="np4-jR-7R3">
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="np4-jR-7R3">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="236"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -720,48 +720,62 @@
                                     <outlet property="UIDelegate" destination="XfG-lQ-9wD" id="75L-U0-D1H"/>
                                 </connections>
                             </wkWebView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frv-Jc-PgO">
-                                <rect key="frame" x="399" y="234" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xb3-6g-uxv">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="frv-Jc-PgO">
+                                <rect key="frame" x="415" y="235" width="58" height="32"/>
+                                <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xb3-6g-uxv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="goToSender:" target="XfG-lQ-9wD" id="Tf0-Kg-aEO"/>
+                                </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-W2-Tne">
-                                <rect key="frame" x="160" y="240" width="222" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-US-45T">
+                                <rect key="frame" x="45" y="235" width="40" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSGoForwardTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gq0-HH-Om4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="goForward:" target="rPt-NT-nkU" id="oSv-yR-eDa"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-e5-vOt">
+                                <rect key="frame" x="5" y="235" width="40" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSGoBackTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FSe-OU-bF7">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="goBack:" target="rPt-NT-nkU" id="COa-oA-zyZ"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-W2-Tne">
+                                <rect key="frame" x="87" y="241" width="322" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="mV3-ca-j0l">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-US-45T">
-                                <rect key="frame" x="77" y="234" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" image="NSGoRightTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gq0-HH-Om4">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-e5-vOt">
-                                <rect key="frame" x="5" y="233" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" image="NSGoLeftTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FSe-OU-bF7">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="np4-jR-7R3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="QHb-RL-kHx"/>
-                            <constraint firstItem="np4-jR-7R3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="VL9-3O-aI3"/>
+                            <constraint firstItem="frv-Jc-PgO" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="7" id="6ok-s4-jK3"/>
+                            <constraint firstItem="np4-jR-7R3" firstAttribute="top" secondItem="frv-Jc-PgO" secondAttribute="bottom" constant="6" id="DoE-93-yGr"/>
+                            <constraint firstAttribute="trailing" secondItem="frv-Jc-PgO" secondAttribute="trailing" constant="13" id="Qae-7b-Aof"/>
+                            <constraint firstAttribute="trailing" secondItem="np4-jR-7R3" secondAttribute="trailing" id="Qm4-tI-7tU"/>
+                            <constraint firstItem="np4-jR-7R3" firstAttribute="top" secondItem="ApJ-W2-Tne" secondAttribute="bottom" constant="5" id="TkP-pz-nZV"/>
+                            <constraint firstItem="np4-jR-7R3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="a3b-lP-fw1"/>
+                            <constraint firstAttribute="bottom" secondItem="np4-jR-7R3" secondAttribute="bottom" id="l4w-70-utA"/>
+                            <constraint firstItem="ApJ-W2-Tne" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="7" id="pDg-rv-cNG"/>
                             <constraint firstAttribute="bottom" secondItem="np4-jR-7R3" secondAttribute="bottom" id="umk-cs-C7E"/>
                             <constraint firstAttribute="trailing" secondItem="np4-jR-7R3" secondAttribute="trailing" id="vex-kG-xRb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="urlText" destination="ApJ-W2-Tne" id="rPX-x6-Zc0"/>
                         <outlet property="webView" destination="np4-jR-7R3" id="33i-Ka-pyw"/>
                     </connections>
                 </viewController>
@@ -771,7 +785,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSGoLeftTemplate" width="9" height="12"/>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSGoForwardTemplate" width="9" height="12"/>
     </resources>
 </document>
