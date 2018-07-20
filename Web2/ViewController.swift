@@ -18,19 +18,20 @@ class ViewController: NSViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        urlText.stringValue = "https://www.apple.com/"
-        load(str: urlText.stringValue)
-        /*
+//        urlText.stringValue = "https://www.apple.com/"
+//        load(str: urlText.stringValue)
+        
         let url = Bundle.main.url(forResource: "template", withExtension: "html")
-        var content: String! = "nihao"
+        var content: String! = nil
         do {
             content = try String(contentsOf: url!)
         } catch {}
 
-        Swift.print(content)
-        webView.loadHTMLString(content!, baseURL: nil)
-        */
+        urlText.stringValue = (url?.absoluteString)!
         
+        let text = "<center><strong>Vastiny</strong></center>"
+        let html = content.replacingOccurrences(of: "{{CONTENT}}", with: text)
+        webView.loadHTMLString(html, baseURL: nil)
     }
 
     override var representedObject: Any? {
